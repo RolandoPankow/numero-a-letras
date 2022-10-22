@@ -9,11 +9,12 @@ function numxletras() {
     for (let index = 0; index < passs; index++) {
 		numero = parseInt(num);
     		centenas=(numero%1000-numero%100); decenas=(numero%100-numero%10); unidades=numero%10; numx=decenas+unidades; numxx=centenas+decenas+unidades; 
-	    	enletras += (num == 100) ? 'cien ' : cen[centenas] + ' ';   
+	    	enletras += (numxx == 100) ? 'cien ' : cen[centenas] + ' ';   
 			enletras += (numx == 1 && (index == 1 || index == 3)) ? '' :
 						(numx == 1 && (index == 2 || index == 4)) ? 'un' :
 						(numx <= 9) ? uni[numx] :
 						(numx <= 20) ? dec[numx] :
+						(numx == 21 && index >= 1) ? "veintiun" :
 						(numx <= 29) ? 'veinti' + uni[unidades] :
 						(numx <= 99 && unidades >= 1) ? dec[decenas] + ' y ' + uni[unidades] :
 						(numx <= 99) ? dec[decenas] : '';
